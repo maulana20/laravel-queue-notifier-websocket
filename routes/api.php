@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
     
     Route::get('job/public', function () {
         
-        dispatch(new RunJob());
+        dispatch(new RunJob())->delay(now()->addSeconds(5));
         
         return response()->json(['status' => 'done']);
         
@@ -32,7 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
     
     Route::get('job/private', function () {
         
-        dispatch(new RunPrivateJob(auth()->id()));
+        dispatch(new RunPrivateJob(auth()->id()))->delay(now()->addSeconds(5));
         
         return response()->json(['status' => 'done']);
         

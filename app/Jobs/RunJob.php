@@ -31,8 +31,8 @@ class RunJob implements ShouldQueue
      */
     public function handle()
     {
-        sleep(5);
         event(new RunJobDone('Run job done'));
+        
         info('Run job done');
     }
 }

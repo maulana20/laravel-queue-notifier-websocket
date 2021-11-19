@@ -33,8 +33,8 @@ class RunPrivateJob implements ShouldQueue
      */
     public function handle()
     {
-        sleep(5);
         event(new RunPrivateJobDone($this->id, 'Run private for ' . $this->id . ' job done'));
+        
         info('Run private for ' . $this->id . ' job done');
     }
 }
